@@ -9,23 +9,71 @@
 2025-01-15 * "Sweetgreen" "DoorDash food delivery"
   import-id: "1lmOANutKCLWGfAmkkAfFdPvvU4GhQW"
   import-src: "import-data/connect/chase/2025.csv"
-  Liabilities:ChaseCreditCard                           -61.94 USD
-  Expenses:FoodDelivery:DoorDash                         61.94 USD
+  Liabilities:ChaseCreditCard                                    -61.94 USD
+  Expenses:FoodDelivery:DoorDash                                  61.94 USD
 
 2025-01-16 * "Chipotle Mexican Grill" "DoorDash food delivery"
   import-id: "LqW8ofKO2cWHFiesSBGp0Bhx77co31"
   import-src: "import-data/connect/chase/2025.csv"
-  Liabilities:ChaseCreditCard                           -56.83 USD
-  Expenses:FoodDelivery:DoorDash                         56.83 USD
+  Liabilities:ChaseCreditCard                                    -56.83 USD
+  Expenses:FoodDelivery:DoorDash                                  56.83 USD
+
+2025-01-17 * "Netflix" "Netflix subscription"
+  import-id: "nKPOhv67FqmLvySoXu3hqqthgTXlevLG"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                                    -15.49 USD
+  Expenses:Entertainment:StreamingService                         15.49 USD
 
 2025-01-20 * "Sweetgreen" "DoorDash food delivery"
   import-id: "MC4J5CvcWOJKeJunQvVPbN5vt4dXWeh"
   import-src: "import-data/connect/chase/2025.csv"
-  Liabilities:ChaseCreditCard                           -55.26 USD
-  Expenses:FoodDelivery:DoorDash                         55.26 USD
+  Liabilities:ChaseCreditCard                                    -55.26 USD
+  Expenses:FoodDelivery:DoorDash                                  55.26 USD
 
 2025-01-21 * "Sweetgreen" "DoorDash food delivery"
   import-id: "mvxAXpzFLQCg1c9ELcXtsqxb3Yx2Qe3"
   import-src: "import-data/connect/chase/2025.csv"
-  Liabilities:ChaseCreditCard                           -86.28 USD
-  Expenses:FoodDelivery:DoorDash                         86.28 USD
+  Liabilities:ChaseCreditCard                                    -86.28 USD
+  Expenses:FoodDelivery:DoorDash                                  86.28 USD
+
+2025-01-25 * "Comcast" "Comcast internet service"
+  import-id: "dxpT5J0X4hS0MqYrnc1cZxrrLbD1XHs"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                                    -50.00 USD
+  Expenses:Internet                                               50.00 USD
+
+2025-02-17 * "Netflix" "Netflix subscription"
+  import-id: "eB7gWkgm7N5GBhEAZpeD7FnfrAfBCXv"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                                    -15.49 USD
+  Expenses:Entertainment:StreamingService                         15.49 USD
+
+2025-02-25 * "Comcast" "Comcast internet service"
+  import-id: "T8fBS6FuAP8t3VL587uWVRxKYuoFEiu"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                                    -50.00 USD
+  Expenses:Internet                                               50.00 USD
+
+2025-03-17 * "Netflix" "Netflix subscription"
+  import-id: "HTtGYotAeSNIpVBehFPrp9apkMQatb"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                                    -15.49 USD
+  Expenses:Entertainment:StreamingService                         15.49 USD
+
+2025-03-25 * "Comcast" "Comcast internet service"
+  import-id: "zpu0iuZae1J8CIlHlUlowNUvd6fnazd"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                                    -50.00 USD
+  Expenses:Internet                                               50.00 USD
+
+2025-04-17 * "Netflix" "Netflix subscription"
+  import-id: "5YMaL9yKzf6ZENG5STOwJBKjzmq1PE"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                                    -15.49 USD
+  Expenses:Entertainment:StreamingService                         15.49 USD
+
+2025-04-25 * "Comcast" "Comcast internet service"
+  import-id: "AEWphb5lyXyWxdXve1jS4Z6fdqfAi"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                                    -50.00 USD
+  Expenses:Internet                                               50.00 USD
