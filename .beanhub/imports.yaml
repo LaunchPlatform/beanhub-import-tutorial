@@ -19,7 +19,7 @@ imports:
               amount:
                 number: "{{ -amount }}"
                 currency: "{{ currency | default('USD', true) }}"
-            - account: "Expenses:FoodDelivery"
+            - account: "Expenses:FoodDelivery:DoorDash"
               amount:
                 number: "{{ amount }}"
                 currency: "{{ currency | default('USD', true) }}"
