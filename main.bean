@@ -5,3 +5,27 @@
 2025-01-01 open Expenses:Friendship
 2025-01-01 open Expenses:Internet
 2025-01-01 open Expenses:Entertainment:StreamingService
+
+2025-01-15 * "Sweetgreen" "DoorDash food delivery"
+  import-id: "1lmOANutKCLWGfAmkkAfFdPvvU4GhQW"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                           -61.94 USD
+  Expenses:FoodDelivery                                  61.94 USD
+
+2025-01-16 * "Chipotle Mexican Grill" "DoorDash food delivery"
+  import-id: "LqW8ofKO2cWHFiesSBGp0Bhx77co31"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                           -56.83 USD
+  Expenses:FoodDelivery                                  56.83 USD
+
+2025-01-20 * "Sweetgreen" "DoorDash food delivery"
+  import-id: "MC4J5CvcWOJKeJunQvVPbN5vt4dXWeh"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                           -55.26 USD
+  Expenses:FoodDelivery                                  55.26 USD
+
+2025-01-21 * "Sweetgreen" "DoorDash food delivery"
+  import-id: "mvxAXpzFLQCg1c9ELcXtsqxb3Yx2Qe3"
+  import-src: "import-data/connect/chase/2025.csv"
+  Liabilities:ChaseCreditCard                           -86.28 USD
+  Expenses:FoodDelivery                                  86.28 USD
