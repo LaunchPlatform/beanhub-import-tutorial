@@ -1,5 +1,12 @@
 inputs:
   - match: "import-data/connect/chase/*.csv"
+    config:
+      default_file: main.bean
+      prepend_postings:
+        - account: Liabilities:ChaseCreditCard
+          amount:
+            number: "{{ -amount }}"
+            currency: "{{ currency | default('USD', true) }}"
 
 imports:
   - name: DoorDash Food Delivery
@@ -9,16 +16,11 @@ imports:
       desc:
         prefix: "DD *DOORDASH"
     actions:
-      - file: main.bean
-        txn:
+      - txn:
           flag: "{{ '!' if pending else '*' }}"
           payee: "{{ payee | default(omit, true) }}"
           narration: "DoorDash food delivery"
           postings:
-            - account: Liabilities:ChaseCreditCard
-              amount:
-                number: "{{ -amount }}"
-                currency: "{{ currency | default('USD', true) }}"
             - account: "Expenses:FoodDelivery:DoorDash"
               amount:
                 number: "{{ amount }}"
@@ -29,16 +31,11 @@ imports:
         equals: "plaid"
       desc: "Netflix"
     actions:
-      - file: main.bean
-        txn:
+      - txn:
           flag: "{{ '!' if pending else '*' }}"
           payee: "{{ payee | default(omit, true) }}"
           narration: "Netflix subscription"
           postings:
-            - account: Liabilities:ChaseCreditCard
-              amount:
-                number: "{{ -amount }}"
-                currency: "{{ currency | default('USD', true) }}"
             - account: "Expenses:Entertainment:StreamingService"
               amount:
                 number: "{{ amount }}"
@@ -49,16 +46,11 @@ imports:
         equals: "plaid"
       desc: "Comcast"
     actions:
-      - file: main.bean
-        txn:
+      - txn:
           flag: "{{ '!' if pending else '*' }}"
           payee: "{{ payee | default(omit, true) }}"
           narration: "Comcast internet service"
           postings:
-            - account: Liabilities:ChaseCreditCard
-              amount:
-                number: "{{ -amount }}"
-                currency: "{{ currency | default('USD', true) }}"
             - account: "Expenses:Internet"
               amount:
                 number: "{{ amount }}"
