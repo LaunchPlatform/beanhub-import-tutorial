@@ -1,3 +1,4 @@
-inputs: []
+inputs:
+  - match: "import-data/connect/chase/*.csv"
 
 imports: []
