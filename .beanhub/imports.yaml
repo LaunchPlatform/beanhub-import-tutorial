@@ -23,3 +23,43 @@ imports:
               amount:
                 number: "{{ amount }}"
                 currency: "{{ currency | default('USD', true) }}"
+  - name: Netflix
+    match:
+      extractor:
+        equals: "plaid"
+      desc: "Netflix"
+    actions:
+      - file: main.bean
+        txn:
+          flag: "{{ '!' if pending else '*' }}"
+          payee: "{{ payee | default(omit, true) }}"
+          narration: "Netflix subscription"
+          postings:
+            - account: Liabilities:ChaseCreditCard
+              amount:
+                number: "{{ -amount }}"
+                currency: "{{ currency | default('USD', true) }}"
+            - account: "Expenses:Entertainment:StreamingService"
+              amount:
+                number: "{{ amount }}"
+                currency: "{{ currency | default('USD', true) }}"
+  - name: Comcast
+    match:
+      extractor:
+        equals: "plaid"
+      desc: "Comcast"
+    actions:
+      - file: main.bean
+        txn:
+          flag: "{{ '!' if pending else '*' }}"
+          payee: "{{ payee | default(omit, true) }}"
+          narration: "Comcast internet service"
+          postings:
+            - account: Liabilities:ChaseCreditCard
+              amount:
+                number: "{{ -amount }}"
+                currency: "{{ currency | default('USD', true) }}"
+            - account: "Expenses:Internet"
+              amount:
+                number: "{{ amount }}"
+                currency: "{{ currency | default('USD', true) }}"
