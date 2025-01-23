@@ -1,4 +1,25 @@
 inputs:
   - match: "import-data/connect/chase/*.csv"
 
-imports: []
+imports:
+  - name: DoorDash Food Delivery
+    match:
+      extractor:
+        equals: "plaid"
+      desc:
+        prefix: "DD *DOORDASH"
+    actions:
+      - file: main.bean
+        txn:
+          flag: "{{ '!' if pending else '*' }}"
+          payee: "{{ payee | default(omit, true) }}"
+          narration: "DoorDash food delivery"
+          postings:
+            - account: Liabilities:ChaseCreditCard
+              amount:
+                number: "{{ -amount }}"
+                currency: "{{ currency | default('USD', true) }}"
+            - account: "Expenses:FoodDelivery"
+              amount:
+                number: "{{ amount }}"
+                currency: "{{ currency | default('USD', true) }}"
