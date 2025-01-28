@@ -9,49 +9,33 @@ inputs:
             currency: "{{ currency | default('USD', true) }}"
 
 imports:
-  - name: DoorDash Food Delivery
-    match:
+  - name: Routines
+    common_cond:
       extractor:
         equals: "plaid"
-      desc:
-        prefix: "DD *DOORDASH"
+    match:
+      - cond:
+          desc:
+            prefix: "DD *DOORDASH"
+        vars:
+          narration: DoorDash food delivery
+          account: Expenses:FoodDelivery:DoorDash
+      - cond:
+          desc: "Netflix"
+        vars:
+          narration: Netflix subscription
+          account: Expenses:Entertainment:StreamingService
+      - cond:
+          desc: "Comcast"
+        vars:
+          account: Expenses:Internet
     actions:
       - txn:
           flag: "{{ '!' if pending else '*' }}"
           payee: "{{ payee | default(omit, true) }}"
-          narration: "DoorDash food delivery"
+          narration: "{{ narration | default(desc, true) }}"
           postings:
-            - account: "Expenses:FoodDelivery:DoorDash"
-              amount:
-                number: "{{ amount }}"
-                currency: "{{ currency | default('USD', true) }}"
-  - name: Netflix
-    match:
-      extractor:
-        equals: "plaid"
-      desc: "Netflix"
-    actions:
-      - txn:
-          flag: "{{ '!' if pending else '*' }}"
-          payee: "{{ payee | default(omit, true) }}"
-          narration: "Netflix subscription"
-          postings:
-            - account: "Expenses:Entertainment:StreamingService"
-              amount:
-                number: "{{ amount }}"
-                currency: "{{ currency | default('USD', true) }}"
-  - name: Comcast
-    match:
-      extractor:
-        equals: "plaid"
-      desc: "Comcast"
-    actions:
-      - txn:
-          flag: "{{ '!' if pending else '*' }}"
-          payee: "{{ payee | default(omit, true) }}"
-          narration: "Comcast internet service"
-          postings:
-            - account: "Expenses:Internet"
+            - account: "{{ account }}"
               amount:
                 number: "{{ amount }}"
                 currency: "{{ currency | default('USD', true) }}"
