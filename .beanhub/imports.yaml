@@ -7,6 +7,22 @@ inputs:
           amount:
             number: "{{ -amount }}"
             currency: "{{ currency | default('USD', true) }}"
+  - match: "import-data/connect/Wells Fargo/SAVING ...5678/*.csv"
+    config:
+      default_file: "books/{{ date.year }}.bean"
+      prepend_postings:
+        - account: Assets:Bank:US:WellsFargo:Saving
+          amount:
+            number: "{{ -amount }}"
+            currency: "{{ currency | default('USD', true) }}"
+  - match: "import-data/connect/American Express/Blue Cash Everyday®/*.csv"
+    config:
+      default_file: "books/{{ date.year }}.bean"
+      prepend_postings:
+        - account: Liabilities:CreditCard:US:AMEXBlueCashEveryday
+          amount:
+            number: "{{ -amount }}"
+            currency: "{{ currency | default('USD', true) }}"
 
 imports:
   - name: Routines
