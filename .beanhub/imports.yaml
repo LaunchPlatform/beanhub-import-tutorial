@@ -1,28 +1,19 @@
 inputs:
-  - match: "import-data/connect/chase/*.csv"
+  - match: "import-data/connect/{{ match_path }}"
     config:
       default_file: main.bean
       prepend_postings:
-        - account: Liabilities:ChaseCreditCard
+        - account: "{{ input_account }}"
           amount:
             number: "{{ -amount }}"
             currency: "{{ currency | default('USD', true) }}"
-  - match: "import-data/connect/Wells Fargo/SAVING ...5678/*.csv"
-    config:
-      default_file: "books/{{ date.year }}.bean"
-      prepend_postings:
-        - account: Assets:Bank:US:WellsFargo:Saving
-          amount:
-            number: "{{ -amount }}"
-            currency: "{{ currency | default('USD', true) }}"
-  - match: "import-data/connect/American Express/Blue Cash Everyday®/*.csv"
-    config:
-      default_file: "books/{{ date.year }}.bean"
-      prepend_postings:
-        - account: Liabilities:CreditCard:US:AMEXBlueCashEveryday
-          amount:
-            number: "{{ -amount }}"
-            currency: "{{ currency | default('USD', true) }}"
+    loop:
+      - match_path: "chase/*.csv"
+        input_account: Liabilities:ChaseCreditCard
+      - match_path: "Wells Fargo/SAVING ...5678/*.csv"
+        input_account: Assets:Bank:US:WellsFargo:Saving
+      - match_path: "American Express/Blue Cash Everyday®/*.csv"
+        input_account: Liabilities:CreditCard:US:AMEXBlueCashEveryday
 
 imports:
   - name: Routines
